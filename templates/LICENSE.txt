@@ -1,0 +1,38 @@
+LICENSE NOTICE
+
+All legal agreement templates in this "templates" directory are licensed under
+the Creative Commons Attribution 4.0 International License (CC BY 4.0).
+
+  License: https://creativecommons.org/licenses/by/4.0/
+  Legal code: https://creativecommons.org/licenses/by/4.0/legalcode
+
+Attribution:
+  These templates are Common Paper standard agreements, copyright Common Paper,
+  Inc., obtained from the Common Paper GitHub repositories
+  (https://github.com/CommonPaper) and published at
+  https://commonpaper.com/standards/.
+
+  Source repositories:
+    AI-Addendum.md                 https://github.com/CommonPaper/AI-Addendum
+    BAA.md                         https://github.com/CommonPaper/BAA
+    CSA.md                         https://github.com/CommonPaper/CSA
+    Design-Partner-Agreement.md    https://github.com/CommonPaper/Design-Partner-Agreement
+    DPA.md                         https://github.com/CommonPaper/DPA
+    Mutual-NDA.md                  https://github.com/CommonPaper/Mutual-NDA
+    Mutual-NDA-Coverpage.md        https://github.com/CommonPaper/Mutual-NDA
+    Partnership-Agreement.md       https://github.com/CommonPaper/Partnership-Agreement
+    Pilot-Agreement.md             https://github.com/CommonPaper/Pilot-Agreement
+    PSA.md                         https://github.com/CommonPaper/PSA
+    SLA.md                         https://github.com/CommonPaper/SLA
+    Software-License-Agreement.md  https://github.com/CommonPaper/Software-License-Agreement
+
+Changes:
+  Some files were renamed for consistency (e.g. psa.md -> PSA.md, sla.md -> SLA.md,
+  design-partner-agreement.md -> Design-Partner-Agreement.md,
+  Mutual-NDA-coverpage.md -> Mutual-NDA-Coverpage.md). The content of the
+  templates is unmodified from the source. Any modifications made later by the
+  Prelegal system to produce a user's document are derivative works that remain
+  subject to the CC BY 4.0 attribution requirements.
+
+The CC BY 4.0 license applies only to the contents of this directory. The rest
+of the Prelegal project is covered by the LICENSE file in the project root.
