@@ -17,10 +17,14 @@ npm run dev     # http://localhost:3000
 Other scripts:
 
 ```bash
-npm test        # Vitest unit tests (document builder, template parsing, PDF smoke test)
+npm test            # unit + component tests (Vitest)
+npm run test:e2e    # production build + end-to-end tests in Chrome (Playwright)
+npm run test:all    # both
 npm run lint
 npm run build && npm start
 ```
+
+See [TESTING.md](TESTING.md) for what the tests cover and the manual test plan and results.
 
 Run these from `frontend/`. The Standard Terms are read from `../templates/Mutual-NDA.md` at build time,
 relative to the working directory.
