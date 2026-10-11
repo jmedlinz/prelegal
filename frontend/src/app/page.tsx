@@ -14,7 +14,9 @@ export default function Home() {
         </div>
         <p className="hidden text-xs text-slate-500 sm:block">Based on the Common Paper Mutual NDA v1.0 (CC BY 4.0)</p>
       </header>
-      <NdaCreator standardTerms={standardTerms} />
+      <main className="flex flex-1 flex-col">
+        <NdaCreator standardTerms={standardTerms} />
+      </main>
     </>
   );
 }

@@ -71,15 +71,19 @@ function PreviewBlock({ block }: { block: Block }) {
           <table className="mb-4 w-full table-fixed border-collapse text-sm">
             <thead>
               <tr>
-                <th className="w-1/4 border border-slate-300 p-2" />
-                <th className="border border-slate-300 p-2">PARTY 1</th>
-                <th className="border border-slate-300 p-2">PARTY 2</th>
+                <td className="w-1/4 border border-slate-300 p-2" />
+                <th scope="col" className="border border-slate-300 p-2">
+                  PARTY 1
+                </th>
+                <th scope="col" className="border border-slate-300 p-2">
+                  PARTY 2
+                </th>
               </tr>
             </thead>
             <tbody>
               {block.rows.map((row) => (
                 <tr key={row.label}>
-                  <th className="border border-slate-300 p-2 text-left align-top font-medium">
+                  <th scope="row" className="border border-slate-300 p-2 text-left align-top font-medium">
                     {row.label}
                     {row.hint && <span className="block text-xs font-normal text-slate-500 italic">{row.hint}</span>}
                   </th>
@@ -102,7 +106,7 @@ function PreviewBlock({ block }: { block: Block }) {
 /** Renders the NDA document model as HTML, styled like a sheet of paper. */
 export function NdaPreview({ nda }: { nda: NdaDocument }) {
   return (
-    <article className="mx-auto max-w-[8.5in] bg-white px-8 py-10 font-serif text-[15px] leading-relaxed text-slate-900 shadow-md ring-1 ring-slate-200 sm:px-14">
+    <article className="mx-auto max-w-[8.5in] bg-white wrap-anywhere px-8 py-10 font-serif text-[15px] leading-relaxed text-slate-900 shadow-md ring-1 ring-slate-200 sm:px-14">
       {nda.map((block, i) => (
         <PreviewBlock key={i} block={block} />
       ))}

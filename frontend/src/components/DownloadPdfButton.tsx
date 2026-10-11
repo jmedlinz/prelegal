@@ -37,12 +37,16 @@ export function DownloadPdfButton({ nda, filename }: DownloadPdfButtonProps) {
 
   return (
     <div className="flex items-center gap-3">
-      {error && <span className="text-sm text-red-600">{error}</span>}
+      {error && (
+        <span role="alert" className="text-sm text-red-600">
+          {error}
+        </span>
+      )}
       <button
         type="button"
         onClick={download}
         disabled={busy}
-        className="rounded-md bg-sky-700 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-sky-800 disabled:cursor-wait disabled:opacity-60"
+        className="rounded-md bg-sky-700 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-sky-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-700 disabled:cursor-wait disabled:opacity-60"
       >
         {busy ? "Generating…" : "Download PDF"}
       </button>

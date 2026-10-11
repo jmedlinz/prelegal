@@ -1,10 +1,11 @@
 "use client";
 
-import type { ReactNode } from "react";
+import { useId, type ReactNode } from "react";
 import type { NdaFormData, PartyInfo } from "@/lib/nda/types";
 
+// Width is set per use: Tailwind can't reliably override one width utility with another in the same class list.
 const inputClass =
-  "w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-sky-500 focus:ring-2 focus:ring-sky-200 focus:outline-none disabled:bg-slate-100 disabled:text-slate-400";
+  "rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm focus:border-sky-700 focus:ring-2 focus:ring-sky-700 focus:outline-none disabled:bg-slate-100 disabled:text-slate-400";
 
 interface TextFieldProps {
   label: string;
@@ -18,17 +19,26 @@ interface TextFieldProps {
 
 /** A labelled text input, or a textarea when `rows` is given. */
 function TextField({ label, hint, value, onChange, rows, type = "text" }: TextFieldProps) {
+  const id = useId();
   const props = {
+    id,
     value,
     onChange: (e: { target: { value: string } }) => onChange(e.target.value),
-    className: inputClass,
+    "aria-describedby": hint ? `${id}-hint` : undefined,
+    className: `${inputClass} w-full`,
   };
   return (
-    <label className="block space-y-1">
-      <span className="text-sm font-medium text-slate-800">{label}</span>
+    <div className="space-y-1">
+      <label htmlFor={id} className="block text-sm font-medium text-slate-800">
+        {label}
+      </label>
       {rows ? <textarea rows={rows} {...props} /> : <input type={type} {...props} />}
-      {hint && <span className="block text-xs text-slate-500">{hint}</span>}
-    </label>
+      {hint && (
+        <p id={`${id}-hint`} className="text-xs text-slate-500">
+          {hint}
+        </p>
+      )}
+    </div>
   );
 }
 

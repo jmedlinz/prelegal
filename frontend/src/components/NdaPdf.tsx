@@ -1,7 +1,24 @@
-import { Document, Link, Page, StyleSheet, Text, View } from "@react-pdf/renderer";
+import { Document, Font, Link, Page, StyleSheet, Text, View } from "@react-pdf/renderer";
 import type { Block, Inline, NdaDocument } from "@/lib/nda/types";
 
 // Loaded only in the browser, on demand, by DownloadPdfButton.
+
+/** Tokens longer than this may wrap mid-token, so a long email or URL can't overflow its cell or the page. */
+const LONG_TOKEN = 24;
+
+/**
+ * Line-break hints for react-pdf. Ordinary words are never hyphenated: a split word in a legal document (or a URL
+ * such as "common-paper.com") reads as different text. Long tokens get break points after "-", "/", "@", "." and
+ * "_", and every 12 characters otherwise. Each break point is an empty part, which react-pdf treats as zero-width
+ * glue, so it can wrap there without inserting a hyphen.
+ */
+export function lineBreakParts(word: string): string[] {
+  if (word.length <= LONG_TOKEN) return [word];
+  const pieces = word.split(/(?<=[-/@._])/).flatMap((piece) => piece.match(/.{1,12}/g) ?? []);
+  return pieces.flatMap((piece, i) => (i === 0 ? [piece] : ["", piece]));
+}
+
+Font.registerHyphenationCallback(lineBreakParts);
 
 const LETTER_HEIGHT = 792; // points
 
