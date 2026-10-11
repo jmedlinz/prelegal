@@ -26,7 +26,7 @@ jobs:
 
       - run: npm ci
       - run: npm run lint
-      - run: npx tsc --noEmit
+      - run: npm run typecheck
       - name: Unit and component tests
         run: npm run test:coverage
 

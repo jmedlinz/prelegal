@@ -21,6 +21,7 @@ npm test            # unit + component tests (Vitest)
 npm run test:e2e    # production build + end-to-end tests in Chrome (Playwright)
 npm run test:all    # both
 npm run lint
+npm run typecheck   # generates Next.js route types, then runs tsc
 npm run build && npm start
 ```
 
